@@ -1,4 +1,5 @@
 // mirror invert
+// n, d
 package main
 
 type BinaryTree struct {

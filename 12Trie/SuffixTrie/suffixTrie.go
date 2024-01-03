@@ -1,5 +1,17 @@
 package main
 
+// trie := TrieFromString("babc")
+// expected := SuffixTrie{
+// 	'c': {'*': nil},
+// 	'b': {
+// 		'c': {'*': nil},
+// 		'a': {'b': {'c': {'*': nil}}},
+// 	},
+// 	'a': {'b': {'c': {'*': nil}}},
+// }
+// require.True(t, trie.Equals(expected))
+// require.True(t, trie.Contains("abc"))
+
 import (
 	"fmt"
 )
@@ -12,6 +24,7 @@ func NewSuffixTrie() SuffixTrie {
 	return trie
 }
 
+// O(n2), O(n2)
 func (trie SuffixTrie) PopulateSuffixTrieFrom(str string) {
 	// Write your code here.
 	for i := range str {
@@ -27,6 +40,7 @@ func (trie SuffixTrie) PopulateSuffixTrieFrom(str string) {
 	}
 }
 
+// O(m), O(1)
 func (trie SuffixTrie) Contains(str string) bool {
 	// Write your code here.
 	node := trie

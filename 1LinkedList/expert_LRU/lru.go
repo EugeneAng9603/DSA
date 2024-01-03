@@ -37,6 +37,7 @@ func NewLRUCache(size int) *LRUCache {
 	return lru
 }
 
+// 1,1
 func (cache *LRUCache) InsertKeyValuePair(key string, value int) {
 	// Write your code here.
 
@@ -62,6 +63,7 @@ func (cache *LRUCache) InsertKeyValuePair(key string, value int) {
 	cache.updateMostRecent(cache.index[key])
 }
 
+// 1,1
 // The second return value indicates whether or not the key was found
 // in the cache.
 func (cache *LRUCache) GetValueFromKey(key string) (int, bool) {
@@ -75,6 +77,7 @@ func (cache *LRUCache) GetValueFromKey(key string) (int, bool) {
 
 }
 
+// 1,1
 // The second return value is false if the cache is empty.
 func (cache *LRUCache) GetMostRecentKey() (string, bool) {
 	// Write your code here.

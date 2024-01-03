@@ -1,3 +1,5 @@
+// all logn, logn
+
 // Recursively
 
 package main
@@ -147,3 +149,119 @@ func main() {
 	fmt.Print(root.Left.Left, root.Left.Right, root.Right.Left, root.Right.Right)
 	fmt.Print("\n")
 }
+
+// all logn, 1
+// Iteratively
+
+// package main
+
+// type BST struct {
+// 	Value int
+
+// 	Left  *BST
+// 	Right *BST
+// }
+
+// func (tree *BST) Insert(value int) *BST {
+// 	// Write your code here.
+// 	// Do not edit the return statement of this method.
+//     curr := tree
+//     for {
+//         if value < curr.Value {
+//             if curr.Left == nil {
+//                 curr.Left = &BST{Value: value}
+//                 break
+//             } else {
+//                 curr = curr.Left
+//             }
+//         } else {
+//             if curr.Right == nil {
+//                 curr.Right = &BST{Value: value}
+//                 break
+//             } else {
+//                 curr = curr.Right
+//             }
+//         }
+//     }
+// 	return tree
+// }
+
+// func (tree *BST) Contains(value int) bool {
+// 	// Write your code here.
+//     curr := tree
+//     for curr != nil {
+//         if value < curr.Value {
+//             curr = curr.Left
+//         } else if value > curr.Value {
+//             curr = curr.Right
+//         } else {
+//             return true
+//         }
+//     }
+// 	return false
+// }
+
+// func (tree *BST) Remove(value int) *BST {
+// 	// Write your code here.
+// 	// Do not edit the return statement of this method.
+// 	tree.removeWithParent(value, nil)
+//     return tree
+// }
+
+// // binary search the value
+// // if root to be remove
+// // if found value is on the Left / Right
+// func (tree *BST) removeWithParent(value int, parent *BST) {
+//     curr := tree
+//     for curr != nil {
+//         if value < curr.Value {
+//             parent = curr
+//             curr = curr.Left
+//         } else if value > curr.Value {
+//             parent = curr
+//             curr = curr.Right
+//         } else {
+//             // found! try to replace it with smallest val on right
+//             // case 1: with 2 nodes
+//             if curr.Left != nil && curr.Right != nil {
+//                 curr.Value = curr.Right.getMinValue()
+//                 curr.Right.removeWithParent(curr.Value, curr)
+//             // case 2: if remove root node with only 1 child
+//             } else if parent == nil {
+//                 if curr.Left != nil {
+//                     curr.Value = curr.Left.Value
+//                     curr.Right = curr.Left.Right
+//                     curr.Left = curr.Left.Left
+//                 } else if curr.Right != nil { // if left is empty
+//                     curr.Value = curr.Right.Value
+//                     curr.Left = curr.Right.Left
+//                     curr.Right = curr.Right.Right
+//                 } else {
+//                 // single-noed tree, do nth
+//                 }
+//             // case 2: on the left and with 1 child only
+//             } else if parent.Left == curr {
+//                 if curr.Left != nil {
+//                     parent.Left = curr.Left
+//                 } else {
+//                     parent.Left = curr.Right
+//                 }
+//             // case 3: on the right and with 1 child only
+//             } else if parent.Right == curr {
+//                 if curr.Right != nil {
+//                     parent.Right = curr.Left
+//                 } else {
+//                     parent.Right = curr.Right
+//                 }
+//             }
+//             break
+//         }
+//     }
+// }
+
+// func (tree *BST) getMinValue() int {
+//     if tree.Left == nil {
+//         return tree.Value
+//     }
+//     return tree.Left.getMinValue()
+// }

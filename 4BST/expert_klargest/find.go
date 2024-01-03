@@ -1,3 +1,5 @@
+// h+k, h , k is input param
+
 package main
 
 // This is an input class. Do not edit.
@@ -32,3 +34,17 @@ func reverseInOrder(node *BST, k int, treeInfo *treeInfo) {
 		reverseInOrder(node.Left, k, treeInfo)
 	}
 }
+
+// root := &BST{Value: 15}
+// 	root.Left = &BST{Value: 5}
+// 	root.Left.Left = &BST{Value: 2}
+// 	root.Left.Left.Left = &BST{Value: 1}
+// 	root.Left.Left.Right = &BST{Value: 3}
+// 	root.Left.Right = &BST{Value: 5}
+// 	root.Right = &BST{Value: 20}
+// 	root.Right.Left = &BST{Value: 17}
+// 	root.Right.Right = &BST{Value: 22}
+// 	k := 3
+// 	expected := 17
+// 	actual := FindKthLargestValueInBst(root, k)
+// 	require.Equal(t, expected, actual)

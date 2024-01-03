@@ -1,3 +1,5 @@
+package main
+
 var userTotal map[string]int
 
 func init() {

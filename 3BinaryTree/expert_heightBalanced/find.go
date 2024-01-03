@@ -1,3 +1,5 @@
+// n, h
+
 // if balanced, means for all subtree, leftsub and rightsub height diff is <= 1
 
 package main
