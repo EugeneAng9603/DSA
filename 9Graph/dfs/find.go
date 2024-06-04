@@ -24,6 +24,18 @@ func (n *Node) DepthFirstSearch(array []string) []string {
 	return array
 }
 
+func NewNode(str string) *Node {
+	return &Node{Name: str, Children: []*Node{}}
+}
+
+func (n *Node) AddChildren(childrens ...string) *Node {
+	for _, child := range childrens {
+		node := NewNode(child)
+		n.Children = append(n.Children, node)
+	}
+	return n
+}
+
 // var graph = NewNode("A").AddChildren("B", "C", "D")
 // 	graph.Children[0].AddChildren("E").AddChildren("F")
 // 	graph.Children[2].AddChildren("G").AddChildren("H")
@@ -32,3 +44,13 @@ func (n *Node) DepthFirstSearch(array []string) []string {
 // 	output := graph.DepthFirstSearch([]string{})
 // 	expected := []string{"A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"}
 // 	require.Equal(t, expected, output)
+
+func main() {
+	var graph = NewNode("A").AddChildren("B", "C", "D")
+	graph.Children[0].AddChildren("E").AddChildren("F")
+	graph.Children[2].AddChildren("G").AddChildren("H")
+	graph.Children[0].Children[1].AddChildren("I").AddChildren("J")
+	graph.Children[2].Children[0].AddChildren("K")
+	output := graph.DepthFirstSearch([]string{})
+	fmt.Print(output)
+}

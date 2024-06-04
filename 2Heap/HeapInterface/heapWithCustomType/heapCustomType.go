@@ -50,6 +50,12 @@ func main() {
 	heap.Push(holidays, Holiday{name: "Christmas", date: time.Date(2023, time.December, 25, 0, 0, 0, 0, time.Local)})
 	heap.Push(holidays, Holiday{name: "Labour Day", date: time.Date(2023, time.May, 1, 0, 0, 0, 0, time.Local)})
 	heap.Push(holidays, Holiday{name: "Diwali", date: time.Date(2023, time.November, 23, 0, 0, 0, 0, time.Local)})
+	heap.Push(holidays, Holiday{name: "gf Birthday", date: time.Date(2023, time.April, 6, 0, 0, 0, 0, time.Local)})
+	heap.Push(holidays, Holiday{name: "my birthday", date: time.Date(2023, time.December, 3, 0, 0, 0, 0, time.Local)})
+	for i := 0; i < 3; i++ {
+		hol := heap.Pop(holidays)
+		fmt.Print(hol)
+	}
 
 	fmt.Println("holidays: ", holidays)
 

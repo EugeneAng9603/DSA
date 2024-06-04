@@ -3,7 +3,8 @@ package main
 
 // given array and direction, return array of buildings which can have sunset view
 
-// Use Stack
+// Use Stack, assume all can view
+// if found a taller currBuilding, keep popping until not taller
 func SunsetViews(buildings []int, direction string) []int {
 	// Write your code here.
 	output := make([]int, 0)

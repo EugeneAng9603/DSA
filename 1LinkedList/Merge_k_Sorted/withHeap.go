@@ -19,14 +19,17 @@ func mergeKLists(lists []*ListNode) *ListNode {
 			heap.Push(&pq, node)
 		}
 	}
-	fmt.Print(pq)
+	// print pq , pq is 112
+	for i := 0; i < len(pq); i++ {
+		fmt.Print(pq[i].Val)
+	}
 	if len(pq) == 0 {
 		return nil
 	}
 	heap.Init(&pq)
 
-	head := &ListNode{}
-	dummyHead := head
+	headPtr := &ListNode{}
+	dummyHead := headPtr
 
 	for len(pq) > 0 {
 		min := heap.Pop(&pq)
@@ -35,12 +38,12 @@ func mergeKLists(lists []*ListNode) *ListNode {
 		// check if min is of interface type *ListNode
 		// min is: &{1 0xc000014260}
 		// minNode is : &{1 0xc000014260}
-		// cast min into the *ListNode type
+		// cast/convert min into the *ListNode type
 		minNode := min.(*ListNode)
 		fmt.Print("minNode is : ", minNode)
 		fmt.Print("\n")
-		head.Next = minNode
-		head = head.Next
+		headPtr.Next = minNode
+		headPtr = headPtr.Next
 
 		if minNode.Next != nil {
 			heap.Push(&pq, minNode.Next)
@@ -78,13 +81,13 @@ func (pq *PQ) Pop() interface{} {
 
 func main() {
 	lists := make([]*ListNode, 3)
-	lists[0] = &ListNode{Val: 1}
-	lists[0].Next = &ListNode{Val: 4}
-	lists[0].Next.Next = &ListNode{Val: 5}
+	lists[0] = &ListNode{Val: 3}
+	lists[0].Next = &ListNode{Val: 5}
+	lists[0].Next.Next = &ListNode{Val: 8}
 
 	lists[1] = &ListNode{Val: 1}
-	lists[1].Next = &ListNode{Val: 3}
-	lists[1].Next.Next = &ListNode{Val: 4}
+	lists[1].Next = &ListNode{Val: 4}
+	lists[1].Next.Next = &ListNode{Val: 7}
 
 	lists[2] = &ListNode{Val: 2}
 	lists[2].Next = &ListNode{Val: 6}

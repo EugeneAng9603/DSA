@@ -101,3 +101,18 @@ func (t *trie) insert(str string) {
 	}
 	currNode[t.endSymbol] = trieNode{}
 }
+
+func main() {
+	strings := []string{
+		"foobarbaz",
+		"foo",
+		"bar",
+		"foobarfoo",
+		"baz",
+		"foobaz",
+		"foofoofoo",
+		"foobazar",
+	}
+
+	fmt.Print(SpecialStrings(strings))
+}

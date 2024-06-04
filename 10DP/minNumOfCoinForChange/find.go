@@ -1,10 +1,13 @@
 // O(nd), O(n)
 // n=7, denom=[1,5,10]
 // output = 3 // 2x1 + 1x5
+//           0 1 2 3 4 5 6 7
+// table is [0 1 2 3 4 1 2 3]
 
 package main
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -27,6 +30,7 @@ func MinNumberOfCoinsForChange(n int, denoms []int) int {
 		}
 	}
 
+	fmt.Print(table)
 	if table[n] != math.MaxInt32 {
 		return table[n]
 	}
@@ -38,4 +42,8 @@ func min(a, b int) int {
 		return b
 	}
 	return a
+}
+
+func main() {
+	fmt.Print(MinNumberOfCoinsForChange(7, []int{1, 5, 10}))
 }

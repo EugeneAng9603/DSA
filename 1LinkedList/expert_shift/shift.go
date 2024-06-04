@@ -1,6 +1,11 @@
 // 0,1,2,3,4,5 k=2
 // 4,5,0,1,2,3
 
+// Shifting a Linked List means moving its nodes forward or backward and wrapping
+// them around the list where appropriate. For example, shifting a Linked List
+// forward by one position would make its tail become the new head of the linked
+// list.
+
 // find tail position first
 package main
 
@@ -36,7 +41,7 @@ func ShiftLinkedList(head *LinkedList, k int) *LinkedList {
 		newTailPosition = offset
 	}
 
-	// reach newTail
+	// move to reach newTail, in the example move to position 4 (3)
 	newTail := head
 	for i := 1; i < newTailPosition; i++ {
 		newTail = newTail.Next
@@ -46,7 +51,7 @@ func ShiftLinkedList(head *LinkedList, k int) *LinkedList {
 	newHead := newTail.Next
 	// tail -> nil
 	newTail.Next = nil
-	// when find length of ll
+	// when find length of ll, link it back to the head
 	listTail.Next = head
 	return newHead
 }

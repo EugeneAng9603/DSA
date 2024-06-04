@@ -36,6 +36,7 @@ func SumOfLinkedLists(linkedListOne *LinkedList, linkedListTwo *LinkedList) *Lin
 		//carry
 		carry = sum / 10
 
+		// check if need to move to next
 		if llOne != nil {
 			llOne = llOne.Next
 		}

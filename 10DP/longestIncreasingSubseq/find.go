@@ -15,10 +15,14 @@ func LongestIncreasingSubsequence(array []int) []int {
 	// stores index of latest number less than currValue
 	// that ends an increasing sub-seq to itself
 	// indices[i] means length of increasing sub-seq
-	// that ends at indices[i]
-	// e.g. [None, 2, 1, 3]
-	// indices[2] is 1, means longest sub-seq that ends at array[1] = 7
-	// is of length 2.... so on and so forth
+	// that ends at array[i]
+	// indices[1] means last index that forms length of 1
+	// indices[5] means last index that forms length of 5
+	// e.g. [None, 2, 1, 3,...]
+	//  arr= [5,   7,-24,12,...]
+	// indices[2] is 1, means longest sub-seq that ends at array[1] = 7 is of length 2.... so on and so forth
+
+	// for every num in arr, we want to find a smaller value with largest length
 	indices := make([]int, len(array)+1)
 	seq := make([]int, len(array))
 	for i := range array {
@@ -27,15 +31,16 @@ func LongestIncreasingSubsequence(array []int) []int {
 	}
 
 	for i, num := range array {
-		// binary search the value smaller than itself in indices[]
-		// e.g. if get indices[2] = 5
+		// newLength is the max length we can have until num, so update indices
 		newLength := binarySearch(1, length, indices, array, num)
-		fmt.Print(newLength, indices)
-		fmt.Print("\n")
 		// seq[i] always = indices[newLength-1], last smaller value in subseq
 		seq[i] = indices[newLength-1]
 		// update indices after binary searching the location
 		indices[newLength] = i
+		fmt.Print("new: ", indices, "currNum is:", num, " length is: ", length, " newLength is: ", newLength)
+		fmt.Print("\n")
+		// fmt.Print("seq: ", seq)
+		fmt.Print("\n")
 		// update max length everytime
 		length = max(length, newLength)
 	}
@@ -43,8 +48,12 @@ func LongestIncreasingSubsequence(array []int) []int {
 	return buildSeq(array, seq, indices[length])
 }
 
-// return location of indices to be modified for each num in arr
-// after BST using num and array[indices[mid]]
+// search for a num that yields a longer length
+// if mid < num, means we found a good candidate, we can try to find longer length, so check right half
+// if cant find another smaller value, then that's the maxLength until num
+// if mid > num, means we can only find shorter length, so go left
+// cuz if mid cant, right of mid (longer length) also cant
+
 func binarySearch(start, end int, indices, array []int, num int) int {
 	if start > end {
 		return start
@@ -89,3 +98,34 @@ func reverse(numbers []int) {
 		numbers[i], numbers[j] = numbers[j], numbers[i]
 	}
 }
+
+func main() {
+	input := []int{5, 7, -24, 12, 10, 2, 3, 12, 5, 6, 35, -1, -2, 36}
+	fmt.Print("input", input, "\n")
+	fmt.Print(LongestIncreasingSubsequence(input))
+}
+
+// --------------------------------------------------------------------------------------------
+// func lengthOfLIS(nums []int) int {
+//     dp := make([]int, len(nums))
+
+//     res := 0
+//     for i := 0; i < len(nums); i++ {
+//         dp[i] = 1
+//         for j := 0; j < i; j++ {
+//             if nums[j] < nums[i] {
+//                 dp[i] = max(dp[i], dp[j] + 1)
+//             }
+//         }
+//         res = max(res, dp[i])
+//     }
+
+//     return res
+// }
+
+// func max(a, b int) int {
+//     if a > b {
+//         return a
+//     }
+//     return b
+// }

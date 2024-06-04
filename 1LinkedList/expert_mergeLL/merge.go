@@ -20,6 +20,7 @@ func MergeLinkedLists(headOne *LinkedList, headTwo *LinkedList) *LinkedList {
 		// if one all smaller, just move p1prev and p1
 		if p1.Value < p2.Value {
 			p1prev = p1
+			// no need to link p1 to p1.Next cuz it's alr linked
 			p1 = p1.Next
 		} else {
 			// edge case if p1prev hasn't point to any

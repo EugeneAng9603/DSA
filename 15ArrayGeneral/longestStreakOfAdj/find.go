@@ -1,6 +1,6 @@
 // n,1
-
 // find the index of 0, which if replaced by 1, can form the longest streak of 1
+
 // for every 1, just add on to get longest curr streak
 // when reach 0, try update index and currLongest
 // so we can just do one pass from left to right

@@ -22,7 +22,7 @@ func SmallestSubstringContaining(bigString, smallString string) string {
 	start, end, head := 0, 0, 0
 	// head is the head of result substring
 	counter := len(table)
-	longest := 1000000
+	longest := 1000000 //math.MaxInt32
 	for end < len(bigString) {
 		// found any of "AABC", then update counter accordingly
 		if _, ok := table[bigString[end]]; ok {

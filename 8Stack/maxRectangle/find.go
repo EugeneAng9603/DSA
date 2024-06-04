@@ -4,11 +4,11 @@
 
 // In conlusion:
 // 1. when top >= curr_height, means we found the right bound of top,
-// so pop it, and next.top is left bound(bcuz it's the last smaller bound, can't go further left),
-// calculate Area(larger than maxArea?)
-// 1.1 THEN keep checking if next.top <= curr_height, do again for it. RMB they share
-// the same right bound
-// 2. when top < curr_height, do nth then add idx to stack then move on
+// so pop it until top < curr_height,
+// and next.top is left bound(bcuz it's the last smaller bound, can't go further left),
+// calculate Area(larger than maxArea?) during each pop
+// they share the same right bound (e.g. 2 now, so calculate all maxArea using 6)
+// 2. when top < curr_height, do nth then add idx to stack then move on to make it increasing stack
 // 3. once reach next of last height, height = 0, do the same pop and calculate until stack
 // is empty
 
@@ -40,6 +40,7 @@ func LargestRectangleUnderSkyline(buildings []int) int {
 				width = i - stack[len(stack)-1] - 1
 			}
 			maxArea = max(width*pillarHeight, maxArea)
+			fmt.Print("top is:", pillarHeight, " maxArea is: ", maxArea, "\n")
 
 		}
 
@@ -56,4 +57,12 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func main() {
+	//input := []int{1, 3, 3, 2, 4, 1, 5, 3, 2}
+	input := []int{1, 2, 3, 4, 5, 6, 2}
+	result := LargestRectangleUnderSkyline(input)
+
+	fmt.Print(result)
 }

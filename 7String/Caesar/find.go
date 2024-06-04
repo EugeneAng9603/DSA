@@ -3,6 +3,8 @@
 
 package main
 
+import "strings"
+
 // Convert all to rune and perform %, addition then conversion to string
 func CaesarCipherEncryptor(str string, key int) string {
 	// Write your code here.
@@ -22,24 +24,24 @@ func CaesarCipherEncryptor(str string, key int) string {
 	return string(runes)
 }
 
-// -----
+// -----------------------------------------------------------------------------------------------------------------------
 // solution 2 ,same complexity
 // package main
 
 // import "strings"
 // // find char in alphabet = abcdefgh...
 // // add it into runes arr
-// func CaesarCipherEncryptor(str string, key int) string {
-// 	// Write your code here.
-//     runes := []rune(str)
-//     alphabet := "abcdefghijklmnopqrstuvwxyz"
-//     for i, char := range runes {
-//         index := strings.Index(alphabet, string(char))
-//         if index == -1 {
-//             return ""
-//         }
-//         newIndex := (index+key) % 26
-//         runes[i] = rune(alphabet[newIndex])
-//     }
-// 	return string(runes)
-// }
+func CaesarCipherEncryptor1(str string, key int) string {
+	// Write your code here.
+	runes := []rune(str)
+	alphabet := "abcdefghijklmnopqrstuvwxyz"
+	for i, char := range runes {
+		index := strings.Index(alphabet, string(char))
+		if index == -1 {
+			return ""
+		}
+		newIndex := (index + key) % 26
+		runes[i] = rune(alphabet[newIndex])
+	}
+	return string(runes)
+}

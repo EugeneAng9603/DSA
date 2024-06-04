@@ -25,6 +25,7 @@ func findMaxSum(tree *BinaryTree) (int, int) {
 		return 0, math.MinInt32
 	}
 
+	// maxPath is the largest possible including the result excluding currNode, maxBranch is the largest branch sum
 	leftMaxBranch, leftMaxPath := findMaxSum(tree.Left)
 	rightMaxBranch, rightMaxPath := findMaxSum(tree.Right)
 	maxChildSum := max(leftMaxBranch, rightMaxBranch)

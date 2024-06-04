@@ -1,11 +1,16 @@
-// O(w*h) we loop through all to find positive and add to queue
+// O(w*h)
+// we loop through all to find positive and add to queue
 // then for each in the queue, keep adding to the queue
+// for each positive, check its neighbors and convert those -ve to +ve
+// once done first round, passes +1 then proceed to second passes
+// do this by using a currQueueSize to differentiate queue within 1 pass
+
 // Bonus: to use just one queue, change condition to for i < len(size)
 // so even added new element in the queue, we will start next for loop
 // for those passed in the next loop
 
-// on every pass, for every non 0 node, we can concert its neighbors to +ve
-// once converted, we dont use it to convert its neighbors in a the same pass
+// on every pass, for every non 0 +ve node, we can convert its neighbors to +ve
+// once converted, we dont use it to convert its neighbors in a same pass
 //
 //	input := [][]int{
 //		{0, -1, -3, 2, 0},
@@ -48,6 +53,7 @@ func convertNegative(matrix [][]int) int {
 		// from this loop and next
 		fmt.Print(queue)
 		queueSize := len(queue)
+		// for all +ve in 1 pass
 		for queueSize > 0 {
 			curr := queue[0]
 			queue = queue[1:]

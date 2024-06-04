@@ -1,4 +1,6 @@
 // Given arr, construct min height BST
+// with this method, we do no need to traverse the bst everytime we insert a new node
+// O(n)
 package main
 
 func MinHeightBST(array []int) *BST {

@@ -26,7 +26,7 @@ func FourNumberSum(array []int, target int) [][]int {
 			diff := target - array[i] - array[j]
 			// add all in table that found
 			if pairs, found := table[diff]; found {
-				// if got 13: [7,6], [8,5], [9,4]
+				// if got 13: [[7,6], [8,5], [9,4]]
 				// then keep adding
 				for _, pair := range pairs {
 					temp := append(pair, array[i], array[j])

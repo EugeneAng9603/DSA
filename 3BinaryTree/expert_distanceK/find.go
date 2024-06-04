@@ -60,15 +60,17 @@ func findDistance(node *BinaryTree, target, k int, result *[]int) int {
 		// e.g. root: rightdistance is 2 (to node 6), target is right
 		// addNode(node.Left), distance is right + 1 = 3
 		// cuz we must start addNode for node.Left,
-		// distance to root is 2, so distance to node.Left is 3
+		// distance to root from node6 is 2 , so distance to node.Left is 3
 		fmt.Print("in right", node.Value, rightDistance+1)
-		addNodeAtDistanceK(node.Left, rightDistance+1, k, result)
+		addNodeAtDistanceK(node.Left, rightDistance+1, k, result) // cuz we check node.Left, 1 closer to k
 		return rightDistance + 1
 	}
 
 	return -1
 }
 
+// this function explore all nodes from "distance" away from node
+// distance+1 when looking deep to find a kth distance ones
 // if distance to node == k, e.g. distance = 2, append these values
 // else keep finding
 func addNodeAtDistanceK(node *BinaryTree, distance int, k int, nodesDistanceK *[]int) {
@@ -83,6 +85,10 @@ func addNodeAtDistanceK(node *BinaryTree, distance int, k int, nodesDistanceK *[
 	}
 }
 
+//                 1     (right distance = 1 to node 3, target is right)
+//      2                     3
+//   4     5                        6
+//                               7     8
 //test case
 // root := &BinaryTree{Value: 1}
 // 	root.Left = &BinaryTree{Value: 2}

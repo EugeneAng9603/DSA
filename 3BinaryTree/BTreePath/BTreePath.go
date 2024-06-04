@@ -1,3 +1,4 @@
+// print all path of Btree
 package main
 
 import (

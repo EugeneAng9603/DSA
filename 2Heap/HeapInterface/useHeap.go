@@ -51,6 +51,7 @@ func main() {
 
 	// Try find and removing min
 	for i := 0; i < 8; i++ {
+
 		min := heap.Pop(nums)
 		fmt.Println("min: ", min, " heap: ", *nums)
 	}

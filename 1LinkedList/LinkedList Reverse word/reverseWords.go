@@ -85,7 +85,7 @@ func getValues(linkedList *LinkedList) []string {
 // reverse k group
 func main() {
 	// ll1 := addMany(&LinkedList{Value: "a"}, []string{"b", "3", " ", "c", "5", " ", " ", "d", "e", "f", " "})
-	ll1 := addMany(&LinkedList{Value: " "}, []string{"a", "b", " ", " ", "c", " ", "d", "e", "f", " "})
+	ll1 := addMany(&LinkedList{Value: " "}, []string{"a", "b", " ", " ", "c", "!", "6", " ", "d", "e", "f", " "})
 	actual := reverseWords(ll1)
 	fmt.Print(getValues(actual))
 }
