@@ -23,21 +23,22 @@ type LinkedList struct {
 // Recursively get to the 5 to find newHead
 // once reached, turn 5->4 , 4->nil
 // return the same newHead
-func ReverseLinkedList(head *LinkedList) *LinkedList {
+func ReverseLinkedList(curr *LinkedList) *LinkedList {
 	// Write your code here.
-	if head == nil || head.Next == nil {
-		return head
+	if curr == nil || curr.Next == nil {
+		return curr
 	}
 	// first bring 2 to reverse, should get back 5>4>3>2, while 1>2)
-	next := ReverseLinkedList(head.Next)
+	next := ReverseLinkedList(curr.Next)
 	// link next to point itself (so 5->4)
-	head.Next.Next = head
+	curr.Next.Next = curr
 	// itself point to nil (so 5->4>nil, and 1->2->3->4)
-	head.Next = nil
+	curr.Next = nil
 	// fmt.Print(next.Value)
 	// fmt.Print("\n")
 
 	// return the head of the new growing linkedlist
+	fmt.Printf("to be returned is %d\n", next.Value)
 	return next
 }
 

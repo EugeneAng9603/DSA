@@ -23,7 +23,7 @@ func LongestSubstringWithoutDuplication(str string) string {
 	lastseen := map[byte]int{}
 	longest := substring{0, 1}
 	startIdx := 0
-	for i, _ := range str {
+	for i := range str {
 		if seenIndex, found := lastseen[str[i]]; found && startIdx < seenIndex+1 { // so that we dont go back to eliminated substring
 			startIdx = seenIndex + 1
 		}

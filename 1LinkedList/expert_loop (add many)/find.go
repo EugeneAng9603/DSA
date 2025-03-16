@@ -58,11 +58,11 @@ func main() {
 	for tail.Next != nil {
 		tail = tail.Next
 	}
-	tail.Next = list.Next
+	tail.Next = list.Next.Next // tail point to 4
 	actual := FindLoop(list)
 	i := 0
 	current := actual
-	for i < 20 {
+	for i < 6 {
 		fmt.Print(current.Value)
 		current = current.Next
 		i += 1

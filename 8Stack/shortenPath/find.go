@@ -59,3 +59,8 @@ func ShortenPath(path string) string {
 func isImportantToken(token string) bool {
 	return len(token) > 0 && token != "."
 }
+
+func main() {
+	input := "/foo/../test/../test/../foo//bar/./baz"
+	fmt.Print(ShortenPath(input))
+}

@@ -4,7 +4,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func twoAthreeB(s string) (int, int) {
@@ -63,8 +62,8 @@ func max(a, b int) int {
 
 func main() {
 	//fmt.Print(findAnagrams("babbbcbaebabacd", "aabc"))
-	//s := "AABBBCCBCDEEEEEBABFFFFFAB" //19
-	s := strings.ToUpper("babbbcbaebabacd") //7
+	s := "AABBBCCBCDEEEEEBABFFFFFAB" //19
+	// s := strings.ToUpper("babbbcbaebabacd") //7
 	length, head := twoAthreeB(s)
 	fmt.Print(s[head:head+length], head, length)
 }

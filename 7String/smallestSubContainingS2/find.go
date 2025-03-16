@@ -64,3 +64,9 @@ func SmallestSubstringContaining(bigString, smallString string) string {
 	return bigString[head : head+longest]
 
 }
+
+func main() {
+	big := "bcd$ef$axb$c$"
+	small := "$$abf"
+	fmt.Print(SmallestSubstringContaining(big, small))
+}

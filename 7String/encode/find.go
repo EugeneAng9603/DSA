@@ -20,7 +20,7 @@ func RunLengthEncoding(str string) string {
 		// fmt.Printf("Value: %c, Unicode: %U, Type: %s\n", s[i], s[i], reflect.TypeOf(s[i]))
 
 		if curr != prev || counter == 9 {
-			// strconv.Itoa(count)[0] is type byte
+			// strconv.Itoa(count)[0] is type byte, means getting the ASCII value of "9"
 			output = append(output, strconv.Itoa(counter)[0])
 			output = append(output, prev)
 			counter = 0

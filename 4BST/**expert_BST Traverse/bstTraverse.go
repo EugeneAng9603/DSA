@@ -11,12 +11,12 @@ type BST struct {
 	Right *BST
 }
 
-func (tree *BST) InOrderTraverse(array []int) []int {
+func (tree *BST) InOrderTraverse(array *[]int) *[]int {
 	// Write your code here.
 	if tree.Left != nil {
 		array = tree.Left.InOrderTraverse(array)
 	}
-	array = append(array, tree.Value)
+	*array = append(*array, tree.Value)
 	if tree.Right != nil {
 		array = tree.Right.InOrderTraverse(array)
 	}
@@ -51,6 +51,11 @@ func NewBST(value int) *BST {
 	return &BST{Value: value}
 }
 
+//                 10
+//         5                 15
+//    2        5                  22
+// 1
+
 func main() {
 	root := NewBST(10)
 	root.Left = NewBST(5)
@@ -63,7 +68,8 @@ func main() {
 	// inOrder := []int{1, 2, 5, 5, 10, 15, 22}
 	// preOrder := []int{10, 5, 2, 1, 5, 15, 22}
 	// postOrder := []int{1, 2, 5, 5, 22, 15, 10}
-	fmt.Print(root.InOrderTraverse([]int{}))
+	arr := []int{}
+	fmt.Print(root.InOrderTraverse(&arr))
 	fmt.Print(root.PreOrderTraverse([]int{}))
 	fmt.Print(root.PostOrderTraverse([]int{}))
 }

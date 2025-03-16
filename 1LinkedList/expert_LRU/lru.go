@@ -163,6 +163,29 @@ func (node *Node) removeBindings() {
 	node.prev, node.next = nil, nil
 }
 
+// func (q *LRUCache) Display() {
+// 	node := q.head.Right
+// 	fmt.Printf("%d - [", q.Length)
+// 	for i := 0; i < q.Length; i++ {
+// 		fmt.Printf("{%s}", node.Val)
+// 		if i < q.Length-1 {
+// 			fmt.Print("<-->")
+// 		}
+// 		node = node.Right
+// 	}
+// 	fmt.Print("]\n")
+// }
+
+// func main() {
+// 	fmt.Println("START LRU CACHE.")
+// 	cache := NewCache()
+// 	for _, word := range []string{"a", "b", "c", "a", "d", "b", "c"} {
+// 		cache.Check(word)
+// 		cache.Display(word)
+// 	}
+
+// }
+
 // -------------------------------------------------------------------------------------
 // This file is initialized with a code version of this
 // question's sample test case. Feel free to add, edit,
