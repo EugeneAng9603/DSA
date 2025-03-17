@@ -1,5 +1,7 @@
 // traverse graph but cannot cross the diagonal
 // we can find the half part first, then multiply by 2
+
+// (n2), O(n2)
 package main
 
 import "fmt"
