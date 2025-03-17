@@ -9,7 +9,12 @@
 // output = 2 // 1x1+1x5 , 6x1
 
 package main
-
+// denom = 1
+//         0 1 2 3 4 5 6
+// ways = [1,1,1,1,1,1,1]
+// denom = 5
+//         0 1 2 3 4 5 6
+// ways = [1,1,1,1,1,2,2]
 func NumberOfWaysToMakeChange(n int, denoms []int) int {
 	// Write your code here.
 	ways := make([]int, n+1)
