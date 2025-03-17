@@ -3,7 +3,11 @@
 // output = 3 // 2x1 + 1x5
 //           0 1 2 3 4 5 6 7
 // table is [0 1 2 3 4 1 2 3]
-
+// To make an amount n using a set of denominations, we can consider using each coin denomination denom and 
+// look at the minimum number of coins needed to make the remaining amount (n - denom).
+// In other words, if we know the minimum number of coins required to make n - denom, 
+// then the solution for n is just one more coin (the coin denom), 
+// plus the minimum number of coins needed to make the remaining amount n - denom.
 package main
 
 import (
