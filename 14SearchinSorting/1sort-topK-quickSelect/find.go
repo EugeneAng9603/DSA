@@ -11,6 +11,7 @@
 // expected := 5
 // output := Quickselect([]int{8, 5, 2, 9, 7, 6, 3}, 3)
 
+// randomised array so on average the time complexity is O(n)
 package main
 
 func Quickselect(array []int, k int) int {
