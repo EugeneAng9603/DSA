@@ -5,6 +5,7 @@ package main
 import (
 	"fmt"
 )
+
 // better way
 func longestSubstringWith2A3B(s string) string {
 	left := 0
@@ -104,6 +105,8 @@ func main() {
 	//fmt.Print(findAnagrams("babbbcbaebabacd", "aabc"))
 	s := "AABBBCCBCDEEEEEBABFFFFFAB" //19
 	// s := strings.ToUpper("babbbcbaebabacd") //7
-	length, head := twoAthreeB(s)
-	fmt.Print(s[head:head+length], head, length)
+	// length, head := twoAthreeB(s)
+	// fmt.Print(s[head:head+length], head, length)
+
+	fmt.Print(longestSubstringWith2A3B(s)) // should print "AABBBCCBCDEEEEEBABFFFFFAB" or similar with 2 A's and 3 B's
 }

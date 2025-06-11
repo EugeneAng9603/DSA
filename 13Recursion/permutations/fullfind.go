@@ -3,11 +3,10 @@
 package main
 
 import (
-	"fmt"
 	"slices"
 )
 
-func GetPermutations(array []int) [][]int {
+func GetPermutationsBad(array []int) [][]int {
 	// Write your code here.
 	result := make([][]int, 0)
 	backtrack(&result, []int{}, array)
@@ -60,14 +59,6 @@ func backtrackNoDup(result *[][]int, perm []int, array []int, used map[int]bool)
 		perm = perm[:len(perm)-1]
 		used[i] = false
 	}
-}
-
-func main() {
-	fmt.Print(len(GetPermutations([]int{1, 2, 3, 4}))) // 4!=24
-	fmt.Print("\n")
-	fmt.Print(len(GetPermutationsNoDup([]int{1, 2, 3, 3}))) // 4!/2!1!1! = 12
-	fmt.Print("\n")
-	fmt.Print(GetPermutationsNoDup([]int{1, 2, 3, 3}))
 }
 
 // --------------------------------------
