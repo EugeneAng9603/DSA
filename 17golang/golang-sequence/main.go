@@ -23,7 +23,7 @@ func loop(name string) {
 	defer fmt.Printf("  %s: deferred after loop ends\n", name)
 	for i := 0; i < 3; i++ {
 		fmt.Printf("  %s: %d\n", name, i)
-		time.Sleep(100 * time.Millisecond)
+		// time.Sleep(100 * time.Millisecond)
 	}
 }
 

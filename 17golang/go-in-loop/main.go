@@ -21,7 +21,7 @@ func main() {
 	}
 	fmt.Print("\n")
 	// time.Sleep(time.Millisecond)
-	time.Sleep(time.Second)
+	// time.Sleep(time.Second)
 
 	go testloop("first")
 	go testloop("second")

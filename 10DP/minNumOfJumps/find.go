@@ -34,7 +34,12 @@ func MinNumberOfJumps(array []int) int {
 }
 
 // better -----------------------------------------------------
+// By doing this, the algorithm greedily chooses to make jumps only when necessary,
+// and tracks the farthest point that can be reached at each step.
+// This ensures that the solution is optimal.
+
 // O(n), O(1)
+
 // use some ideology to help us
 // if we know the maxReach e.g. index 1, value 4, maxReach is 5
 // and we know the steps array[i]
@@ -42,6 +47,19 @@ func MinNumberOfJumps(array []int) int {
 // if steps == 0, means must jump, jumpCount += 1
 // then steps = maxReach - i for current steps if steps == 0
 // (this means the steps remaining from i)
+
+// Why does this work?
+// Greedy Choice: At each step,
+// the algorithm is making a local decision to jump as far as possible.
+// This ensures that fewer jumps are required overall.
+// Since you're always making the longest possible jump at every step, you're minimizing the number of jumps.
+
+// Time Complexity: The time complexity of the solution is O(n)
+// because you only need to iterate through the array once, and at each step,
+// you are only performing constant-time operations like comparing values and updating variables.
+
+// Space Complexity: The space complexity is O(1), as the algorithm only uses
+// a few variables (jumps, maxReach, steps) to keep track of the state.
 
 // package main
 
