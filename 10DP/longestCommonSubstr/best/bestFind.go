@@ -10,6 +10,45 @@
 
 // Space: O(n) for the automaton
 
+// 💡 Key Idea:
+// A suffix automaton is a compressed state machine that represents all substrings of a string in linear space and linear construction time.
+
+// Once built for s1, we walk through s2, keeping track of how long we’ve been following a path through the automaton.
+
+// The longest such walk gives us the length of the longest common substring.
+
+// ⚙️ Steps:
+// Build the suffix automaton of s1:
+
+// Each state represents a set of substrings with the same end position and same transitions.
+
+// States have next transitions, a link (suffix link), and the length of the longest substring they represent.
+
+// Total number of states: ≤ 2N
+
+// Build time: O(N)
+
+// Traverse s2 using the automaton:
+
+// For each character c in s2, try to extend the current path.
+
+// If c is not a valid next character, fall back using suffix links.
+
+// Track the maximum matched length during this traversal.
+
+// ✅ Time & Space:
+// Step	Time	Space
+// Build Automaton	O(N)	O(N)
+// Traverse s2	O(M)	O(1)
+// Total	O(N + M)	O(N)
+
+// 🔥 Why it's Faster:
+// No nested loops: unlike DP, we never compare all pairs of characters.
+
+// No redundant work: we use pre-built transitions, suffix links, and greedy path matching.
+
+// Cache friendly: avoids large 2D memory access.
+
 package best
 
 type state struct {
