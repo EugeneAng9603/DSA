@@ -1,3 +1,6 @@
+// Time Complexity: O(m * n)
+// Space Complexity: O(n) (using two rows)
+
 package best
 
 func LongestCommonSubstring(s1, s2 string) int {
