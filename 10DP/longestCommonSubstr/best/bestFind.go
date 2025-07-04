@@ -11,7 +11,8 @@
 // Space: O(n) for the automaton
 
 // 💡 Key Idea:
-// A suffix automaton is a compressed state machine that represents all substrings of a string in linear space and linear construction time.
+// A suffix automaton is a compressed state machine that represents all substrings
+// of a string in linear space and linear construction time.
 
 // Once built for s1, we walk through s2, keeping track of how long we’ve been following a path through the automaton.
 
