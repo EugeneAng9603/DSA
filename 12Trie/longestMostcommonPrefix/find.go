@@ -68,3 +68,25 @@ func (t *Trie) Insert(str string) {
 		}
 	}
 }
+
+func (t *Trie) Display() {
+    var dfs func(node *TrieNode, prefix string)
+    dfs = func(node *TrieNode, prefix string) {
+        if len(node.children) == 0 {
+            fmt.Printf("%s (count: %d)\n", prefix, node.count)
+            return
+        }
+        fmt.Printf("%s (count: %d)\n", prefix, node.count)
+        for char, child := range node.children {
+            dfs(child, prefix+string(char))
+        }
+    }
+    dfs(t.root, "")
+}
+
+func main() {
+  trie := NewTrie()
+  trie.Insert("algoexpert")
+  trie.Insert("algoexabc")
+  trie.Display()
+}
